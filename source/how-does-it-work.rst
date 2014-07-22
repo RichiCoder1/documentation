@@ -37,7 +37,7 @@ To add a dependency on another task, use the `IsDependentOn`-method.
 
    RunTarget("B");
 
-This will first execute target `B` and then `A` as expected.
+This will first execute target `A` and then `B` as expected.
 
 Criterias
 ---------

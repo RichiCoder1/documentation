@@ -80,4 +80,4 @@ This is just an example. Much more functionality is already implemented such as 
 Try it out
 ----------
 
-To see an actual build script in action, fork or clone the [GitHub repository](https://github.com/cake-build/cake) and run `build.cmd` which will download Cake from NuGet and run the `build.cake` script.
+To see an actual build script in action, fork or clone the `GitHub repository <https://github.com/cake-build/cake>`_ and run `build.cmd` which will download Cake from NuGet and run the `build.cake` script.

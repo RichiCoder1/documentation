@@ -12,5 +12,6 @@ Table of contents
    :maxdepth: 2
 
    what-is-cake
+   how-does-it-work
    getting-started
 

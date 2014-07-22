@@ -1,10 +1,26 @@
 How does it work?
 =================
 
-Cake uses a `dependency based programming <http://martinfowler.com/articles/rake.html#DependencyBasedProgramming>`_ model just like Rake, FAKE and similar build automation systems where you declare tasks and the dependencies between those. When you execute a task, Cake will construct a directed acyclic graph containing all tasks and execute these in the correct order.
+Cake uses a `dependency based programming <http://martinfowler.com/articles/rake.html#DependencyBasedProgramming>`_ model just like Rake, FAKE and similar build automation systems where you declare tasks and the dependencies between those.
 
-Task execution
---------------
+Tasks
+-----
+
+To define a new task, use the `Task`-method.
+
+.. code-block:: csharp
+
+   Task("A")
+      .Does(() =>
+   {
+   });
+
+   RunTarget("A");
+
+Dependencies
+------------
+
+To add a dependency on another task, use the `IsDependentOn`-method.
 
 .. code-block:: csharp
 
@@ -46,3 +62,5 @@ You can also control the flow by providing `criterias`. A criteria is a predicat
    RunTarget("B");
 
 Task `A`'s criteria will be set when the task is created while Task `B`'s criteria will be evaluated when the task is being executed.
+
+For criterias with states that might change during the execution of the build script, consider using the lambda alternative.

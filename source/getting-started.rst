@@ -19,7 +19,7 @@ A build script like that could look something like this.
    var config = Argument<string>("config", "Release");
 
    Task("Clean")
-   .Does(() =>
+      .Does(() =>
    {
       // Clean directories.
       CleanDirectory("./output");
@@ -28,8 +28,8 @@ A build script like that could look something like this.
    });
 
    Task("Build")
-   .IsDependentOn("Clean")
-   .Does(() =>
+      .IsDependentOn("Clean")
+      .Does(() =>
    {
       // Build the solution using MSBuild.
       MSBuild("./src/Project.sln", settings => 
@@ -37,16 +37,16 @@ A build script like that could look something like this.
    });
 
    Task("RunUnitTests")
-   .IsDependentOn("Build")
-   .Does(() =>
+      .IsDependentOn("Build")
+      .Does(() =>
    {
       // Run xUnit tests.
       XUnit("./src/**/bin/" + config + "/*.Tests.dll");
    });
 
    Task("CopyFiles")
-   .IsDependentOn("RunUnitTests")
-   .Does(() =>
+      .IsDependentOn("RunUnitTests")
+      .Does(() =>
    {
       var path = "./src/Project/bin/" + configuration;    
       var files = GetFiles(path + "/**/*.dll") 
@@ -57,8 +57,8 @@ A build script like that could look something like this.
    });    
 
    Task("Package")
-   .IsDependentOn("RunUnitTests")
-   .Does(() =>
+      .IsDependentOn("RunUnitTests")
+      .Does(() =>
    {
       // Zip all files in the bin directory.
       Zip("./output/bin", "./output/build.zip");

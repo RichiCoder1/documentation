@@ -14,11 +14,3 @@ Table of contents
    what-is-cake
    getting-started
 
-
-Indices and tables
-==================
-
-* :ref:`genindex`
-* :ref:`modindex`
-* :ref:`search`
-

@@ -21,9 +21,15 @@ Arguments
 Globbing
 --------
 
+Files
+^^^^^
+
 .. code-block:: csharp
 
    IEnumerable<FilePath> GetFiles(string pattern)
+
+Directories
+^^^^^^^^^^^
 
 .. code-block:: csharp
 
@@ -33,6 +39,9 @@ File operations
 ---------------
 
 The classes `DirectoryPath` and `FilePath` implement implicit conversion from `System.String`. So where these values are used, a string can be used instead. No need to new up instances of these.
+
+Copy
+^^^^
 
 .. code-block:: csharp
 
@@ -50,6 +59,9 @@ The classes `DirectoryPath` and `FilePath` implement implicit conversion from `S
 
    void CopyFiles(IEnumerable<FilePath> filePaths, DirectoryPath targetDirectoryPath)
 
+Move
+^^^^
+
 .. code-block:: csharp
 
    void MoveFileToDirectory(FilePath filePath, DirectoryPath targetDirectoryPath)
@@ -65,6 +77,9 @@ The classes `DirectoryPath` and `FilePath` implement implicit conversion from `S
 .. code-block:: csharp
 
    void MoveFile(FilePath filePath, FilePath targetFilePath)
+
+Delete
+^^^^^^
 
 .. code-block:: csharp
 
@@ -83,9 +98,15 @@ Directory operations
 
 The classes `DirectoryPath` and `FilePath` implement implicit conversion from `System.String`. So where these values are used, a string can be used instead. No need to new up instances of these.
 
+Create
+^^^^^^
+
 .. code-block:: csharp
 
    void CreateDirectory(DirectoryPath path)
+
+Clean
+^^^^^   
 
 .. code-block:: csharp
 
@@ -98,6 +119,9 @@ The classes `DirectoryPath` and `FilePath` implement implicit conversion from `S
 .. code-block:: csharp
 
    void CleanDirectories(IEnumerable<DirectoryPath> directories)
+
+Delete
+^^^^^^
 
 .. code-block:: csharp
 
@@ -262,6 +286,9 @@ ILMerge
 WiX
 ---
 
+Candle
+^^^^^^
+
 .. code-block:: csharp
 
    void WiXCandle(string pattern, CandleSettings settings = null)
@@ -269,6 +296,9 @@ WiX
 .. code-block:: csharp
 
    void WiXCandle(IEnumerable<FilePath> sourceFiles, CandleSettings settings = null)
+
+Light
+^^^^^
 
 .. code-block:: csharp
 

@@ -12,7 +12,7 @@ User documentation
 ==================
 
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 3
 
    what-is-cake
    how-does-it-work

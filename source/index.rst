@@ -16,7 +16,9 @@ User documentation
 
    what-is-cake
    how-does-it-work
-   getting-started   
+   getting-started
+   contributors
+   contribution-guidelines
 
 Api documentation
 =================

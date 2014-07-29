@@ -50,7 +50,7 @@ namespace Compiler
 
         private static void RenderParameterReference(ParameterReference node, TextWriter writer)
         {
-            writer.Write(string.Concat("**", node.Parameter, "**"));
+            writer.Write(string.Concat("``", node.Parameter, "``"));
         }
     }
 }

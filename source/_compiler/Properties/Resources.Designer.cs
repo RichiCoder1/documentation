@@ -73,11 +73,11 @@ namespace Compiler.Properties {
         ///{{Name}}
         ///{{/if}}
         ///{{#each Methods}}
+        ///{{Description}}
+        ///
         ///.. code-block:: csharp
         ///
         ///   {{Name}}
-        ///
-        ///{{Description}}
         ///{{/each}}
         ///
         ///{{/each}}

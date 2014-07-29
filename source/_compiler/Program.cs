@@ -50,8 +50,15 @@ namespace Compiler
                     Directory.CreateDirectory(outputDirectory);
                 }
 
+                // Delete the file.
+                if (File.Exists(outputFile))
+                {
+                    Console.WriteLine("Deleting file...");
+                    File.Delete(outputFile);
+                }
+
                 // Write the documentation to disk.
-                Console.WriteLine("Writing to {0}...", outputFile);
+                Console.WriteLine("Writing content to file...");
                 using (var stream = File.OpenWrite(outputFile))
                 using (var writer = new StreamWriter(stream))
                 {

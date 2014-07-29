@@ -8,9 +8,10 @@ namespace Compiler.Extensions
 {
     public static class MethodExtensions
     {
-        public static string GetMethodSignature(this MethodInfo method, bool includeParameterNamespace = false)
+        public static string GetMethodSignature(this MethodInfo method)
         {
             var builder = new StringBuilder();
+            var name = method.Name;            
             builder.Append(method.Name);
             builder.Append("(");
             var parameters = method.GetParameters();
@@ -22,7 +23,7 @@ namespace Compiler.Extensions
                     continue;
                 }
                 var isParams = parameter.IsDefined(typeof(ParamArrayAttribute));
-                var signature = parameter.ParameterType.GetFullName(includeParameterNamespace);
+                var signature = parameter.ParameterType.GetFullName(false);
                 signature = isParams ? string.Concat("params ", signature) : signature;
                 var parameterName = parameter.Name;
                 parameterList.Add(string.Concat(signature, " ", parameterName));

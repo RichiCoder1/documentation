@@ -1,287 +1,373 @@
 API documentation
 =================
 
-The classes `DirectoryPath` and `FilePath` implement implicit conversion from `System.String`. So where these values are used, a string can be used instead. No need to new up instances of these.
-
 Arguments
 ---------
 
 .. code-block:: csharp
 
-   bool HasArgument(string key)
+   Cake.Common.ArgumentExtensions.Argument(String name)
+
+Gets an argument.
 
 .. code-block:: csharp
 
-   T Argument<T>(string key)
+   Cake.Common.ArgumentExtensions.Argument(String name, T defaultValue)
+
+Gets an argument.
 
 .. code-block:: csharp
 
-   T Argument<T>(string key, T defaultValue)
- 
-Globbing
---------
+   Cake.Common.ArgumentExtensions.HasArgument(String name)
 
-Files
-^^^^^
-
-.. code-block:: csharp
-
-   IEnumerable<FilePath> GetFiles(string pattern)
-
-Directories
-^^^^^^^^^^^
-
-.. code-block:: csharp
-
-   IEnumerable<DirectoryPath> GetDirectories(string pattern) 
-
-File operations
----------------
-
-The classes `DirectoryPath` and `FilePath` implement implicit conversion from `System.String`. So where these values are used, a string can be used instead. No need to new up instances of these.
-
-Copy
-^^^^
-
-.. code-block:: csharp
-
-   void CopyFileToDirectory(FilePath sourceFilePath, DirectoryPath targetDirectoryPath)
-  
-.. code-block:: csharp
-
-   void CopyFile(FilePath sourceFilePath, FilePath targetFilePath)
-  
-.. code-block:: csharp
-
-   void CopyFiles(string pattern, DirectoryPath targetDirectoryPath)
-  
-.. code-block:: csharp
-
-   void CopyFiles(IEnumerable<FilePath> filePaths, DirectoryPath targetDirectoryPath)
-
-Move
-^^^^
-
-.. code-block:: csharp
-
-   void MoveFileToDirectory(FilePath filePath, DirectoryPath targetDirectoryPath)
-
-.. code-block:: csharp
-
-   void MoveFiles(string pattern, DirectoryPath targetDirectoryPath)
-
-.. code-block:: csharp
-
-   void MoveFiles(IEnumerable<FilePath> filePaths, DirectoryPath targetDirectoryPath)
-
-.. code-block:: csharp
-
-   void MoveFile(FilePath filePath, FilePath targetFilePath)
-
-Delete
-^^^^^^
-
-.. code-block:: csharp
-
-   void DeleteFiles(string pattern)
-
-.. code-block:: csharp
-
-   void DeleteFiles(IEnumerable<FilePath> filePaths)
-
-.. code-block:: csharp
-
-   void DeleteFile(FilePath filePath)
-
-Directory operations
---------------------
-
-The classes `DirectoryPath` and `FilePath` implement implicit conversion from `System.String`. So where these values are used, a string can be used instead. No need to new up instances of these.
-
-Create
-^^^^^^
-
-.. code-block:: csharp
-
-   void CreateDirectory(DirectoryPath path)
-
-Clean
-^^^^^   
-
-.. code-block:: csharp
-
-   void CleanDirectory(DirectoryPath path)
-
-.. code-block:: csharp
-
-   void CleanDirectories(string pattern)
-
-.. code-block:: csharp
-
-   void CleanDirectories(IEnumerable<DirectoryPath> directories)
-
-Delete
-^^^^^^
-
-.. code-block:: csharp
-
-   void DeleteDirectory(DirectoryPath path, bool recursive = false)
-
-.. code-block:: csharp
-
-   void DeleteDirectories(IEnumerable<DirectoryPath> directories, bool recursive = false)
+Determines whether or not the specified argument exist.
 
 Assembly Info
 -------------
 
 .. code-block:: csharp
 
-   void CreateAssemblyInfo(FilePath outputPath, AssemblyInfoSettings settings)
+   Cake.Common.AssemblyInfoExtensions.CreateAssemblyInfo(FilePath outputPath, AssemblyInfoSettings settings)
 
-Release notes
+Creates an assembly information file.
+
+Release Notes
 -------------
 
 .. code-block:: csharp
 
-   IReadOnlyList<ReleaseNotes> ParseAllReleaseNotes(FilePath filePath)
+   Cake.Common.ReleaseNotesExtensions.ParseAllReleaseNotes(FilePath filePath)
+
+Parses all release notes.
 
 .. code-block:: csharp
 
-   ReleaseNotes ParseReleaseNotes(this ICakeContext context, FilePath filePath)
+   Cake.Common.ReleaseNotesExtensions.ParseReleaseNotes(FilePath filePath)
+
+Parses the latest release notes.
 
 Logging
 -------
 
 .. code-block:: csharp
 
-   void Error(string format, params object[] args)
+   Cake.Common.Diagnostics.LoggingExtensions.Debug(String format, params Object[] args)
+
+Writes a debug message to the log using the specified format information.
 
 .. code-block:: csharp
 
-   void Warning(string format, params object[] args)
+   Cake.Common.Diagnostics.LoggingExtensions.Error(String format, params Object[] args)
+
+Writes an error message to the log using the specified format information.
 
 .. code-block:: csharp
 
-   void Information(string format, params object[] args)
+   Cake.Common.Diagnostics.LoggingExtensions.Information(String format, params Object[] args)
+
+Writes an informational message to the log using the specified format information.
 
 .. code-block:: csharp
 
-   void Verbose(string format, params object[] args)
+   Cake.Common.Diagnostics.LoggingExtensions.Warning(String format, params Object[] args)
+
+Writes a warning message to the log using the specified format information.
 
 .. code-block:: csharp
 
-   void Debug(string format, params object[] args)
+   Cake.Common.Diagnostics.LoggingExtensions.Verbose(String format, params Object[] args)
 
-Zip
----
+Writes a verbose message to the log using the specified format information.
 
-.. code-block:: csharp
+Directory Operations
+--------------------
 
-   void Zip(DirectoryPath rootPath, FilePath outputPath)
-
-.. code-block:: csharp
-
-   void Zip(DirectoryPath rootPath, FilePath outputPath, string pattern)
+Clean
+^^^^^
 
 .. code-block:: csharp
 
-   void Zip(DirectoryPath rootPath, FilePath outputPath, IEnumerable<FilePath> filePaths)
+   Cake.Common.IO.DirectoryExtensions.CleanDirectories(String pattern)
 
-MSBuild
--------
-
-.. code-block:: csharp
-
-   void MSBuild(FilePath solution)
+Cleans the directories matching the specified pattern.
+Cleaning the directory will remove all it&#39;s content but not the directory iteself.
 
 .. code-block:: csharp
 
-   void MSBuild(FilePath solution, Action<MSBuildSettings> settings)
+   Cake.Common.IO.DirectoryExtensions.CleanDirectories(IEnumerable&lt;DirectoryPath&gt; directories)
 
-xUnit
------
-
-.. code-block:: csharp
-
-   void XUnit(string pattern)
+Cleans the specified directories.
+Cleaning a directory will remove all it&#39;s content but not the directory iteself.
 
 .. code-block:: csharp
 
-   void XUnit(string pattern, XUnitSettings settings)
+   Cake.Common.IO.DirectoryExtensions.CleanDirectory(DirectoryPath path)
+
+Cleans the specified directory.
+
+Create
+^^^^^^
 
 .. code-block:: csharp
 
-   void XUnit(IEnumerable<FilePath> assemblies)
+   Cake.Common.IO.DirectoryExtensions.CreateDirectory(DirectoryPath path)
+
+Creates the specified directory.
+
+Delete
+^^^^^^
 
 .. code-block:: csharp
 
-   void XUnit(IEnumerable<FilePath> assemblies, XUnitSettings settings)
+   Cake.Common.IO.DirectoryExtensions.DeleteDirectories(IEnumerable&lt;DirectoryPath&gt; directories, Boolean recursive)
 
-NUnit
------
-
-.. code-block:: csharp
-
-   void NUnit(string pattern)
+Deletes the specified directories.
 
 .. code-block:: csharp
 
-   void NUnit(string pattern, NUnitSettings settings)
+   Cake.Common.IO.DirectoryExtensions.DeleteDirectory(DirectoryPath path, Boolean recursive)
+
+Deletes the specified directory.
+
+File Operations
+---------------
+
+Copy
+^^^^
 
 .. code-block:: csharp
 
-   void NUnit(IEnumerable<FilePath> assemblies)
+   Cake.Common.IO.FileExtensions.CopyFile(FilePath filePath, FilePath targetFilePath)
+
+Copies the specified file.
 
 .. code-block:: csharp
 
-   void NUnit(IEnumerable<FilePath> assemblies, NUnitSettings settings)
+   Cake.Common.IO.FileExtensions.CopyFiles(String pattern, DirectoryPath targetDirectoryPath)
 
-MSTest
-------
-
-.. code-block:: csharp
-
-   void MSTest(string pattern)
+Copies the files matching the specified pattern.
 
 .. code-block:: csharp
 
-   void MSTest(string pattern, MSTestSettings settings)
+   Cake.Common.IO.FileExtensions.CopyFiles(IEnumerable&lt;FilePath&gt; filePaths, DirectoryPath targetDirectoryPath)
+
+Copies the specified files.
 
 .. code-block:: csharp
 
-   void MSTest(IEnumerable<FilePath> assemblies)
+   Cake.Common.IO.FileExtensions.CopyFileToDirectory(FilePath filePath, DirectoryPath targetDirectoryPath)
+
+Copies the specified file.
+
+Delete
+^^^^^^
 
 .. code-block:: csharp
 
-   void MSTest(IEnumerable<FilePath> assemblies, MSTestSettings settings)
+   Cake.Common.IO.FileExtensions.DeleteFile(FilePath filePath)
 
-NuGet
------
-
-.. code-block:: csharp
-
-   void NuGetPack(FilePath nuspecFilePath, NuGetPackSettings settings)
+Deletes the specified file.
 
 .. code-block:: csharp
 
-   void NuGetRestore(FilePath solution)
+   Cake.Common.IO.FileExtensions.DeleteFiles(String pattern)
+
+Deletes the specified files.
 
 .. code-block:: csharp
 
-   void NuGetRestore(NuGetRestoreSettings settings)
+   Cake.Common.IO.FileExtensions.DeleteFiles(IEnumerable&lt;FilePath&gt; filePaths)
+
+Deletes the specified files.
+
+Move
+^^^^
+
+.. code-block:: csharp
+
+   Cake.Common.IO.FileExtensions.MoveFile(FilePath filePath, FilePath targetFilePath)
+
+Moves the specified file to the specified directory.
+
+.. code-block:: csharp
+
+   Cake.Common.IO.FileExtensions.MoveFiles(String pattern, DirectoryPath targetDirectoryPath)
+
+Moves the files matching the specified pattern to the specified directory.
+
+.. code-block:: csharp
+
+   Cake.Common.IO.FileExtensions.MoveFiles(IEnumerable&lt;FilePath&gt; filePaths, DirectoryPath targetDirectoryPath)
+
+Moves the specified files to the specified directory.
+
+.. code-block:: csharp
+
+   Cake.Common.IO.FileExtensions.MoveFileToDirectory(FilePath filePath, DirectoryPath targetDirectoryPath)
+
+Moves the specified file to the specified directory.
+
+Globbing
+--------
+
+Directories
+^^^^^^^^^^^
+
+.. code-block:: csharp
+
+   Cake.Common.IO.GlobbingExtensions.GetDirectories(String pattern)
+
+Gets all directory matching the specified pattern.
+
+Globbing
+^^^^^^^^
+
+.. code-block:: csharp
+
+   Cake.Common.IO.GlobbingExtensions.GetFiles(String pattern)
+
+Gets all files matching the specified pattern.
+
+Compression
+-----------
+
+.. code-block:: csharp
+
+   Cake.Common.IO.ZipExtensions.Zip(DirectoryPath rootPath, FilePath outputPath)
+
+Zips the specified directory.
+
+.. code-block:: csharp
+
+   Cake.Common.IO.ZipExtensions.Zip(DirectoryPath rootPath, FilePath outputPath, String pattern)
+
+Zips the files matching the specified pattern.
+
+.. code-block:: csharp
+
+   Cake.Common.IO.ZipExtensions.Zip(DirectoryPath rootPath, FilePath outputPath, IEnumerable&lt;FilePath&gt; filePaths)
+
+Zips the specified files.
 
 ILMerge
 -------
 
 .. code-block:: csharp
 
-   void ILMerge(FilePath outputFile, FilePath primaryAssembly, 
-            IEnumerable<FilePath> assemblyPaths)
+   Cake.Common.Tools.ILMerge.ILMergeExtensions.ILMerge(FilePath outputFile, FilePath primaryAssembly, IEnumerable&lt;FilePath&gt; assemblyPaths)
+
+Merges the specified assemblies.
 
 .. code-block:: csharp
 
-   void ILMerge(FilePath outputFile, FilePath primaryAssembly,  
-            IEnumerable<FilePath> assemblyPaths, ILMergeSettings settings)
+   Cake.Common.Tools.ILMerge.ILMergeExtensions.ILMerge(FilePath outputFile, FilePath primaryAssembly, IEnumerable&lt;FilePath&gt; assemblyPaths, ILMergeSettings settings)
+
+Merges the specified assemblies.
+
+MSBuild
+-------
+
+.. code-block:: csharp
+
+   Cake.Common.Tools.MSBuild.MSBuildExtensions.MSBuild(FilePath solution)
+
+Builds the specified solution using MSBuild.
+
+.. code-block:: csharp
+
+   Cake.Common.Tools.MSBuild.MSBuildExtensions.MSBuild(FilePath solution, Action&lt;MSBuildSettings&gt; configurator)
+
+Builds the specified solution using MSBuild.
+
+MSTest
+------
+
+.. code-block:: csharp
+
+   Cake.Common.Tools.MSTest.MSTestExtensions.MSTest(String pattern)
+
+Runs all MSTest unit tests in the assemblies matching the specified pattern.
+
+.. code-block:: csharp
+
+   Cake.Common.Tools.MSTest.MSTestExtensions.MSTest(String pattern, MSTestSettings settings)
+
+Runs all MSTest unit tests in the assemblies matching the specified pattern.
+
+.. code-block:: csharp
+
+   Cake.Common.Tools.MSTest.MSTestExtensions.MSTest(IEnumerable&lt;FilePath&gt; assemblyPaths)
+
+Runs all MSTest unit tests in the specified assemblies.
+
+.. code-block:: csharp
+
+   Cake.Common.Tools.MSTest.MSTestExtensions.MSTest(IEnumerable&lt;FilePath&gt; assemblyPaths, MSTestSettings settings)
+
+Runs all MSTest unit tests in the specified assemblies.
+
+NuGet
+-----
+
+Pack
+^^^^
+
+.. code-block:: csharp
+
+   Cake.Common.Tools.NuGet.NuGetExtensions.NuGetPack(FilePath nuspecFilePath, NuGetPackSettings settings)
+
+Creates a NuGet package using the specified Nuspec file.
+
+Push
+^^^^
+
+.. code-block:: csharp
+
+   Cake.Common.Tools.NuGet.NuGetExtensions.NuGetPush(FilePath packageFilePath, NuGetPushSettings settings)
+
+Pushes a NuGet package to a NuGet server and publishes it.
+
+Restore
+^^^^^^^
+
+.. code-block:: csharp
+
+   Cake.Common.Tools.NuGet.NuGetExtensions.NuGetRestore(FilePath targetFilePath)
+
+Restores NuGet packages for the specified target.
+
+.. code-block:: csharp
+
+   Cake.Common.Tools.NuGet.NuGetExtensions.NuGetRestore(FilePath targetFilePath, NuGetRestoreSettings settings)
+
+Restores NuGet packages using the specified settings.
+
+NUnit
+-----
+
+.. code-block:: csharp
+
+   Cake.Common.Tools.NUnit.NUnitExtensions.NUnit(String pattern)
+
+Runs all NUnit unit tests in the assemblies matching the specified pattern.
+
+.. code-block:: csharp
+
+   Cake.Common.Tools.NUnit.NUnitExtensions.NUnit(String pattern, NUnitSettings settings)
+
+Runs all NUnit unit tests in the assemblies matching the specified pattern.
+
+.. code-block:: csharp
+
+   Cake.Common.Tools.NUnit.NUnitExtensions.NUnit(IEnumerable&lt;FilePath&gt; assemblies)
+
+Runs all NUnit unit tests in the specified assemblies.
+
+.. code-block:: csharp
+
+   Cake.Common.Tools.NUnit.NUnitExtensions.NUnit(IEnumerable&lt;FilePath&gt; assemblies, NUnitSettings settings)
+
+Runs all NUnit unit tests in the specified assemblies.
 
 WiX
 ---
@@ -291,19 +377,54 @@ Candle
 
 .. code-block:: csharp
 
-   void WiXCandle(string pattern, CandleSettings settings = null)
+   Cake.Common.Tools.WiX.WiXExtensions.WiXCandle(String pattern, CandleSettings settings)
+
+Compiles all .wxs sources matching the **pattern**.
 
 .. code-block:: csharp
 
-   void WiXCandle(IEnumerable<FilePath> sourceFiles, CandleSettings settings = null)
+   Cake.Common.Tools.WiX.WiXExtensions.WiXCandle(IEnumerable&lt;FilePath&gt; sourceFiles, CandleSettings settings)
+
+Compiles all .wxs sources in **sourceFiles**.
 
 Light
 ^^^^^
 
 .. code-block:: csharp
 
-   void WiXLight(string pattern, LightSettings settings = null)
+   Cake.Common.Tools.WiX.WiXExtensions.WiXLight(String pattern, LightSettings settings)
+
+Links all .wixobj files matching the **pattern**.
 
 .. code-block:: csharp
 
-   void WiXLight(IEnumerable<FilePath> objectFiles, LightSettings settings = null)
+   Cake.Common.Tools.WiX.WiXExtensions.WiXLight(IEnumerable&lt;FilePath&gt; objectFiles, LightSettings settings)
+
+Links all .wixobj files in **objectFiles**.
+
+xUnit
+-----
+
+.. code-block:: csharp
+
+   Cake.Common.Tools.XUnit.XUnitExtensions.XUnit(String pattern)
+
+Runs all xUnit unit tests in the assemblies matching the specified pattern.
+
+.. code-block:: csharp
+
+   Cake.Common.Tools.XUnit.XUnitExtensions.XUnit(String pattern, XUnitSettings settings)
+
+Runs all xUnit unit tests in the assemblies matching the specified pattern.
+
+.. code-block:: csharp
+
+   Cake.Common.Tools.XUnit.XUnitExtensions.XUnit(IEnumerable&lt;FilePath&gt; assemblies)
+
+Runs all xUnit unit tests in the specified assemblies.
+
+.. code-block:: csharp
+
+   Cake.Common.Tools.XUnit.XUnitExtensions.XUnit(IEnumerable&lt;FilePath&gt; assemblies, XUnitSettings settings)
+
+Runs all xUnit unit tests in the specified assemblies.

@@ -1,1 +1,13 @@
+# Misc folders
+[Bb]in/
+[Oo]bj/
+[Tt]emp/
+[Pp]ackages/
+[Bb]uild/
+
+# Build related
+build-results/
+tools/Cake/
+tools/Compiler/
+
 /build

@@ -90,14 +90,14 @@ Clean
    Cake.Common.IO.DirectoryExtensions.CleanDirectories(String pattern)
 
 Cleans the directories matching the specified pattern.
-Cleaning the directory will remove all it&#39;s content but not the directory iteself.
+Cleaning the directory will remove all it's content but not the directory iteself.
 
 .. code-block:: csharp
 
-   Cake.Common.IO.DirectoryExtensions.CleanDirectories(IEnumerable&lt;DirectoryPath&gt; directories)
+   Cake.Common.IO.DirectoryExtensions.CleanDirectories(IEnumerable<DirectoryPath> directories)
 
 Cleans the specified directories.
-Cleaning a directory will remove all it&#39;s content but not the directory iteself.
+Cleaning a directory will remove all it's content but not the directory iteself.
 
 .. code-block:: csharp
 
@@ -119,7 +119,7 @@ Delete
 
 .. code-block:: csharp
 
-   Cake.Common.IO.DirectoryExtensions.DeleteDirectories(IEnumerable&lt;DirectoryPath&gt; directories, Boolean recursive)
+   Cake.Common.IO.DirectoryExtensions.DeleteDirectories(IEnumerable<DirectoryPath> directories, Boolean recursive)
 
 Deletes the specified directories.
 
@@ -149,7 +149,7 @@ Copies the files matching the specified pattern.
 
 .. code-block:: csharp
 
-   Cake.Common.IO.FileExtensions.CopyFiles(IEnumerable&lt;FilePath&gt; filePaths, DirectoryPath targetDirectoryPath)
+   Cake.Common.IO.FileExtensions.CopyFiles(IEnumerable<FilePath> filePaths, DirectoryPath targetDirectoryPath)
 
 Copies the specified files.
 
@@ -176,7 +176,7 @@ Deletes the specified files.
 
 .. code-block:: csharp
 
-   Cake.Common.IO.FileExtensions.DeleteFiles(IEnumerable&lt;FilePath&gt; filePaths)
+   Cake.Common.IO.FileExtensions.DeleteFiles(IEnumerable<FilePath> filePaths)
 
 Deletes the specified files.
 
@@ -197,7 +197,7 @@ Moves the files matching the specified pattern to the specified directory.
 
 .. code-block:: csharp
 
-   Cake.Common.IO.FileExtensions.MoveFiles(IEnumerable&lt;FilePath&gt; filePaths, DirectoryPath targetDirectoryPath)
+   Cake.Common.IO.FileExtensions.MoveFiles(IEnumerable<FilePath> filePaths, DirectoryPath targetDirectoryPath)
 
 Moves the specified files to the specified directory.
 
@@ -245,7 +245,7 @@ Zips the files matching the specified pattern.
 
 .. code-block:: csharp
 
-   Cake.Common.IO.ZipExtensions.Zip(DirectoryPath rootPath, FilePath outputPath, IEnumerable&lt;FilePath&gt; filePaths)
+   Cake.Common.IO.ZipExtensions.Zip(DirectoryPath rootPath, FilePath outputPath, IEnumerable<FilePath> filePaths)
 
 Zips the specified files.
 
@@ -254,13 +254,13 @@ ILMerge
 
 .. code-block:: csharp
 
-   Cake.Common.Tools.ILMerge.ILMergeExtensions.ILMerge(FilePath outputFile, FilePath primaryAssembly, IEnumerable&lt;FilePath&gt; assemblyPaths)
+   Cake.Common.Tools.ILMerge.ILMergeExtensions.ILMerge(FilePath outputFile, FilePath primaryAssembly, IEnumerable<FilePath> assemblyPaths)
 
 Merges the specified assemblies.
 
 .. code-block:: csharp
 
-   Cake.Common.Tools.ILMerge.ILMergeExtensions.ILMerge(FilePath outputFile, FilePath primaryAssembly, IEnumerable&lt;FilePath&gt; assemblyPaths, ILMergeSettings settings)
+   Cake.Common.Tools.ILMerge.ILMergeExtensions.ILMerge(FilePath outputFile, FilePath primaryAssembly, IEnumerable<FilePath> assemblyPaths, ILMergeSettings settings)
 
 Merges the specified assemblies.
 
@@ -275,7 +275,7 @@ Builds the specified solution using MSBuild.
 
 .. code-block:: csharp
 
-   Cake.Common.Tools.MSBuild.MSBuildExtensions.MSBuild(FilePath solution, Action&lt;MSBuildSettings&gt; configurator)
+   Cake.Common.Tools.MSBuild.MSBuildExtensions.MSBuild(FilePath solution, Action<MSBuildSettings> configurator)
 
 Builds the specified solution using MSBuild.
 
@@ -296,13 +296,13 @@ Runs all MSTest unit tests in the assemblies matching the specified pattern.
 
 .. code-block:: csharp
 
-   Cake.Common.Tools.MSTest.MSTestExtensions.MSTest(IEnumerable&lt;FilePath&gt; assemblyPaths)
+   Cake.Common.Tools.MSTest.MSTestExtensions.MSTest(IEnumerable<FilePath> assemblyPaths)
 
 Runs all MSTest unit tests in the specified assemblies.
 
 .. code-block:: csharp
 
-   Cake.Common.Tools.MSTest.MSTestExtensions.MSTest(IEnumerable&lt;FilePath&gt; assemblyPaths, MSTestSettings settings)
+   Cake.Common.Tools.MSTest.MSTestExtensions.MSTest(IEnumerable<FilePath> assemblyPaths, MSTestSettings settings)
 
 Runs all MSTest unit tests in the specified assemblies.
 
@@ -359,13 +359,13 @@ Runs all NUnit unit tests in the assemblies matching the specified pattern.
 
 .. code-block:: csharp
 
-   Cake.Common.Tools.NUnit.NUnitExtensions.NUnit(IEnumerable&lt;FilePath&gt; assemblies)
+   Cake.Common.Tools.NUnit.NUnitExtensions.NUnit(IEnumerable<FilePath> assemblies)
 
 Runs all NUnit unit tests in the specified assemblies.
 
 .. code-block:: csharp
 
-   Cake.Common.Tools.NUnit.NUnitExtensions.NUnit(IEnumerable&lt;FilePath&gt; assemblies, NUnitSettings settings)
+   Cake.Common.Tools.NUnit.NUnitExtensions.NUnit(IEnumerable<FilePath> assemblies, NUnitSettings settings)
 
 Runs all NUnit unit tests in the specified assemblies.
 
@@ -383,7 +383,7 @@ Compiles all .wxs sources matching the **pattern**.
 
 .. code-block:: csharp
 
-   Cake.Common.Tools.WiX.WiXExtensions.WiXCandle(IEnumerable&lt;FilePath&gt; sourceFiles, CandleSettings settings)
+   Cake.Common.Tools.WiX.WiXExtensions.WiXCandle(IEnumerable<FilePath> sourceFiles, CandleSettings settings)
 
 Compiles all .wxs sources in **sourceFiles**.
 
@@ -398,7 +398,7 @@ Links all .wixobj files matching the **pattern**.
 
 .. code-block:: csharp
 
-   Cake.Common.Tools.WiX.WiXExtensions.WiXLight(IEnumerable&lt;FilePath&gt; objectFiles, LightSettings settings)
+   Cake.Common.Tools.WiX.WiXExtensions.WiXLight(IEnumerable<FilePath> objectFiles, LightSettings settings)
 
 Links all .wixobj files in **objectFiles**.
 
@@ -419,12 +419,15 @@ Runs all xUnit unit tests in the assemblies matching the specified pattern.
 
 .. code-block:: csharp
 
-   Cake.Common.Tools.XUnit.XUnitExtensions.XUnit(IEnumerable&lt;FilePath&gt; assemblies)
+   Cake.Common.Tools.XUnit.XUnitExtensions.XUnit(IEnumerable<FilePath> assemblies)
 
 Runs all xUnit unit tests in the specified assemblies.
 
 .. code-block:: csharp
 
-   Cake.Common.Tools.XUnit.XUnitExtensions.XUnit(IEnumerable&lt;FilePath&gt; assemblies, XUnitSettings settings)
+   Cake.Common.Tools.XUnit.XUnitExtensions.XUnit(IEnumerable<FilePath> assemblies, XUnitSettings settings)
+
+Runs all xUnit unit tests in the specified assemblies.
+t;FilePath&gt; assemblies, XUnitSettings settings)
 
 Runs all xUnit unit tests in the specified assemblies.

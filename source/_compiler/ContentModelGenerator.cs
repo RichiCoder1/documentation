@@ -30,7 +30,7 @@ namespace Compiler
                     foreach (var method in methods[categoryName][subCategoryName])
                     {
                         var aliasMethod = new MethodModel();
-                        aliasMethod.Name = method.RepresentedMethod.GetMethodSignature();
+                        aliasMethod.Name = method.RepresentedMethod.GetSignature();
                         aliasMethod.Description = CommentRenderer.Render(method.Summary);
 
                         subCategory.Methods.Add(aliasMethod);

@@ -5,6 +5,7 @@ using System.IO;
 using System.Linq;
 using System.Reflection;
 using System.Text;
+using System.Web;
 using Compiler.Models;
 using Compiler.Properties;
 using Docu;
@@ -92,7 +93,7 @@ namespace Compiler
                     builder.AppendLine(line);
                 }
             }
-            return builder.ToString();
+            return HttpUtility.HtmlDecode(builder.ToString());
         }
 
         private static List<string> GetFiles(string root)

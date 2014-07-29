@@ -19,10 +19,7 @@ namespace Compiler
         {
             if (node is Summary)
             {
-                foreach (var child in node.Children)
-                {
-                    Render(child, writer);
-                }
+                RenderSummary((Summary)node, writer);
             }
             else if (node is InlineText)
             {
@@ -35,6 +32,14 @@ namespace Compiler
             else
             {
                 throw new NotSupportedException();
+            }
+        }
+
+        private static void RenderSummary(Summary node, TextWriter writer)
+        {
+            foreach (var child in node.Children)
+            {
+                Render(child, writer);
             }
         }
 

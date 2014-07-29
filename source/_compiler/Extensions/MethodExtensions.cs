@@ -8,10 +8,10 @@ namespace Compiler.Extensions
 {
     public static class MethodExtensions
     {
-        public static string GetMethodSignature(this MethodInfo method, bool includeMethodNamespace = true, bool includeParameterNamespace = false)
+        public static string GetMethodSignature(this MethodInfo method, bool includeParameterNamespace = false)
         {
             var builder = new StringBuilder();
-            builder.Append(includeMethodNamespace ? method.GetFullName() : method.Name);
+            builder.Append(method.Name);
             builder.Append("(");
             var parameters = method.GetParameters();
             var parameterList = new List<string>();

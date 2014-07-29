@@ -31,53 +31,26 @@ Assembly Info
 
 Creates an assembly information file.
 
-Release Notes
--------------
+Compression
+-----------
 
 .. code-block:: csharp
 
-   Cake.Common.ReleaseNotesExtensions.ParseAllReleaseNotes(FilePath filePath)
+   Cake.Common.IO.ZipExtensions.Zip(DirectoryPath rootPath, FilePath outputPath)
 
-Parses all release notes.
-
-.. code-block:: csharp
-
-   Cake.Common.ReleaseNotesExtensions.ParseReleaseNotes(FilePath filePath)
-
-Parses the latest release notes.
-
-Logging
--------
+Zips the specified directory.
 
 .. code-block:: csharp
 
-   Cake.Common.Diagnostics.LoggingExtensions.Debug(String format, params Object[] args)
+   Cake.Common.IO.ZipExtensions.Zip(DirectoryPath rootPath, FilePath outputPath, String pattern)
 
-Writes a debug message to the log using the specified format information.
-
-.. code-block:: csharp
-
-   Cake.Common.Diagnostics.LoggingExtensions.Error(String format, params Object[] args)
-
-Writes an error message to the log using the specified format information.
+Zips the files matching the specified pattern.
 
 .. code-block:: csharp
 
-   Cake.Common.Diagnostics.LoggingExtensions.Information(String format, params Object[] args)
+   Cake.Common.IO.ZipExtensions.Zip(DirectoryPath rootPath, FilePath outputPath, IEnumerable<FilePath> filePaths)
 
-Writes an informational message to the log using the specified format information.
-
-.. code-block:: csharp
-
-   Cake.Common.Diagnostics.LoggingExtensions.Warning(String format, params Object[] args)
-
-Writes a warning message to the log using the specified format information.
-
-.. code-block:: csharp
-
-   Cake.Common.Diagnostics.LoggingExtensions.Verbose(String format, params Object[] args)
-
-Writes a verbose message to the log using the specified format information.
+Zips the specified files.
 
 Directory Operations
 --------------------
@@ -228,27 +201,6 @@ Globbing
 
 Gets all files matching the specified pattern.
 
-Compression
------------
-
-.. code-block:: csharp
-
-   Cake.Common.IO.ZipExtensions.Zip(DirectoryPath rootPath, FilePath outputPath)
-
-Zips the specified directory.
-
-.. code-block:: csharp
-
-   Cake.Common.IO.ZipExtensions.Zip(DirectoryPath rootPath, FilePath outputPath, String pattern)
-
-Zips the files matching the specified pattern.
-
-.. code-block:: csharp
-
-   Cake.Common.IO.ZipExtensions.Zip(DirectoryPath rootPath, FilePath outputPath, IEnumerable<FilePath> filePaths)
-
-Zips the specified files.
-
 ILMerge
 -------
 
@@ -263,6 +215,39 @@ Merges the specified assemblies.
    Cake.Common.Tools.ILMerge.ILMergeExtensions.ILMerge(FilePath outputFile, FilePath primaryAssembly, IEnumerable<FilePath> assemblyPaths, ILMergeSettings settings)
 
 Merges the specified assemblies.
+
+Logging
+-------
+
+.. code-block:: csharp
+
+   Cake.Common.Diagnostics.LoggingExtensions.Debug(String format, params Object[] args)
+
+Writes a debug message to the log using the specified format information.
+
+.. code-block:: csharp
+
+   Cake.Common.Diagnostics.LoggingExtensions.Error(String format, params Object[] args)
+
+Writes an error message to the log using the specified format information.
+
+.. code-block:: csharp
+
+   Cake.Common.Diagnostics.LoggingExtensions.Information(String format, params Object[] args)
+
+Writes an informational message to the log using the specified format information.
+
+.. code-block:: csharp
+
+   Cake.Common.Diagnostics.LoggingExtensions.Warning(String format, params Object[] args)
+
+Writes a warning message to the log using the specified format information.
+
+.. code-block:: csharp
+
+   Cake.Common.Diagnostics.LoggingExtensions.Verbose(String format, params Object[] args)
+
+Writes a verbose message to the log using the specified format information.
 
 MSBuild
 -------
@@ -368,6 +353,21 @@ Runs all NUnit unit tests in the specified assemblies.
    Cake.Common.Tools.NUnit.NUnitExtensions.NUnit(IEnumerable<FilePath> assemblies, NUnitSettings settings)
 
 Runs all NUnit unit tests in the specified assemblies.
+
+Release Notes
+-------------
+
+.. code-block:: csharp
+
+   Cake.Common.ReleaseNotesExtensions.ParseAllReleaseNotes(FilePath filePath)
+
+Parses all release notes.
+
+.. code-block:: csharp
+
+   Cake.Common.ReleaseNotesExtensions.ParseReleaseNotes(FilePath filePath)
+
+Parses the latest release notes.
 
 WiX
 ---

@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using System.Reflection;
 using Cake.Core.Annotations;
 using Compiler.Extensions;
@@ -11,26 +12,27 @@ namespace Compiler
     {
         public static ContentModel Generate(IList<Namespace> model)
         {
+            var data = GetMethods(model);
+
             var result = new ContentModel();
             result.Categories = new List<CategoryModel>();
 
-            var methods = GetMethods(model);
-            foreach (var categoryName in methods.Keys)
+            foreach (var categoryName in data.Keys.OrderBy(x => x))
             {
                 var category = new CategoryModel();
                 category.Name = categoryName;
                 category.Categories = new List<SubCategoryModel>();
 
-                foreach (var subCategoryName in methods[categoryName].Keys)
+                foreach (var subCategoryName in data[categoryName].Keys)
                 {
                     var subCategory = new SubCategoryModel();
                     subCategory.Name = subCategoryName;
                     subCategory.Methods = new List<MethodModel>();
 
-                    foreach (var method in methods[categoryName][subCategoryName])
+                    foreach (var method in data[categoryName][subCategoryName])
                     {
                         var aliasMethod = new MethodModel();
-                        aliasMethod.Name = method.RepresentedMethod.GetSignature();
+                        aliasMethod.Name = method.RepresentedMethod.GetMethodSignature();
                         aliasMethod.Description = CommentRenderer.Render(method.Summary);
 
                         subCategory.Methods.Add(aliasMethod);

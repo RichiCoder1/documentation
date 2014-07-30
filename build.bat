@@ -28,4 +28,6 @@ tools\Compiler\Compiler.exe "tools\Cake" "source\api-documentation.rst"
 echo.
 echo Generating HTML documentation...
 echo ================================
-make.bat html
+call make.bat html
+
+pause

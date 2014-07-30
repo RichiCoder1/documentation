@@ -11,3 +11,9 @@ tools/Cake/
 tools/Compiler/
 
 /build
+
+# User-specific files
+*.suo
+*.user
+*.sln.docstates
+*.userprefs

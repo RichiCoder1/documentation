@@ -8,19 +8,19 @@ Gets an argument.
 
 .. code-block:: csharp
 
-   Argument(String name)
+   Argument(string name)
 
 Gets an argument.
 
 .. code-block:: csharp
 
-   Argument(String name, T defaultValue)
+   Argument(string name, T defaultValue)
 
 Determines whether or not the specified argument exist.
 
 .. code-block:: csharp
 
-   HasArgument(String name)
+   HasArgument(string name)
 
 Assembly Info
 -------------
@@ -44,7 +44,7 @@ Zips the files matching the specified pattern.
 
 .. code-block:: csharp
 
-   Zip(DirectoryPath rootPath, FilePath outputPath, String pattern)
+   Zip(DirectoryPath rootPath, FilePath outputPath, string pattern)
 
 Zips the specified files.
 
@@ -63,7 +63,7 @@ Cleaning the directory will remove all it's content but not the directory itesel
 
 .. code-block:: csharp
 
-   CleanDirectories(String pattern)
+   CleanDirectories(string pattern)
 
 Cleans the specified directories.
 Cleaning a directory will remove all it's content but not the directory iteself.
@@ -94,13 +94,13 @@ Deletes the specified directories.
 
 .. code-block:: csharp
 
-   DeleteDirectories(IEnumerable<DirectoryPath> directories, Boolean recursive)
+   DeleteDirectories(IEnumerable<DirectoryPath> directories, bool recursive)
 
 Deletes the specified directory.
 
 .. code-block:: csharp
 
-   DeleteDirectory(DirectoryPath path, Boolean recursive)
+   DeleteDirectory(DirectoryPath path, bool recursive)
 
 File Operations
 ---------------
@@ -118,7 +118,7 @@ Copies the files matching the specified pattern.
 
 .. code-block:: csharp
 
-   CopyFiles(String pattern, DirectoryPath targetDirectoryPath)
+   CopyFiles(string pattern, DirectoryPath targetDirectoryPath)
 
 Copies the specified files.
 
@@ -145,7 +145,7 @@ Deletes the specified files.
 
 .. code-block:: csharp
 
-   DeleteFiles(String pattern)
+   DeleteFiles(string pattern)
 
 Deletes the specified files.
 
@@ -166,7 +166,7 @@ Moves the files matching the specified pattern to the specified directory.
 
 .. code-block:: csharp
 
-   MoveFiles(String pattern, DirectoryPath targetDirectoryPath)
+   MoveFiles(string pattern, DirectoryPath targetDirectoryPath)
 
 Moves the specified files to the specified directory.
 
@@ -190,7 +190,7 @@ Gets all directory matching the specified pattern.
 
 .. code-block:: csharp
 
-   GetDirectories(String pattern)
+   GetDirectories(string pattern)
 
 Globbing
 ^^^^^^^^
@@ -199,7 +199,7 @@ Gets all files matching the specified pattern.
 
 .. code-block:: csharp
 
-   GetFiles(String pattern)
+   GetFiles(string pattern)
 
 ILMerge
 -------
@@ -223,31 +223,31 @@ Writes a debug message to the log using the specified format information.
 
 .. code-block:: csharp
 
-   Debug(String format, params Object[] args)
+   Debug(string format, params Object[] args)
 
 Writes an error message to the log using the specified format information.
 
 .. code-block:: csharp
 
-   Error(String format, params Object[] args)
+   Error(string format, params Object[] args)
 
 Writes an informational message to the log using the specified format information.
 
 .. code-block:: csharp
 
-   Information(String format, params Object[] args)
+   Information(string format, params Object[] args)
 
 Writes a warning message to the log using the specified format information.
 
 .. code-block:: csharp
 
-   Warning(String format, params Object[] args)
+   Warning(string format, params Object[] args)
 
 Writes a verbose message to the log using the specified format information.
 
 .. code-block:: csharp
 
-   Verbose(String format, params Object[] args)
+   Verbose(string format, params Object[] args)
 
 MSBuild
 -------
@@ -271,13 +271,13 @@ Runs all MSTest unit tests in the assemblies matching the specified pattern.
 
 .. code-block:: csharp
 
-   MSTest(String pattern)
+   MSTest(string pattern)
 
 Runs all MSTest unit tests in the assemblies matching the specified pattern.
 
 .. code-block:: csharp
 
-   MSTest(String pattern, MSTestSettings settings)
+   MSTest(string pattern, MSTestSettings settings)
 
 Runs all MSTest unit tests in the specified assemblies.
 
@@ -334,13 +334,13 @@ Runs all NUnit unit tests in the assemblies matching the specified pattern.
 
 .. code-block:: csharp
 
-   NUnit(String pattern)
+   NUnit(string pattern)
 
 Runs all NUnit unit tests in the assemblies matching the specified pattern.
 
 .. code-block:: csharp
 
-   NUnit(String pattern, NUnitSettings settings)
+   NUnit(string pattern, NUnitSettings settings)
 
 Runs all NUnit unit tests in the specified assemblies.
 
@@ -379,7 +379,7 @@ Compiles all .wxs sources matching the ``pattern``.
 
 .. code-block:: csharp
 
-   WiXCandle(String pattern, CandleSettings settings)
+   WiXCandle(string pattern, CandleSettings settings)
 
 Compiles all .wxs sources in ``sourceFiles``.
 
@@ -394,7 +394,7 @@ Links all .wixobj files matching the ``pattern``.
 
 .. code-block:: csharp
 
-   WiXLight(String pattern, LightSettings settings)
+   WiXLight(string pattern, LightSettings settings)
 
 Links all .wixobj files in ``objectFiles``.
 
@@ -409,13 +409,13 @@ Runs all xUnit unit tests in the assemblies matching the specified pattern.
 
 .. code-block:: csharp
 
-   XUnit(String pattern)
+   XUnit(string pattern)
 
 Runs all xUnit unit tests in the assemblies matching the specified pattern.
 
 .. code-block:: csharp
 
-   XUnit(String pattern, XUnitSettings settings)
+   XUnit(string pattern, XUnitSettings settings)
 
 Runs all xUnit unit tests in the specified assemblies.
 

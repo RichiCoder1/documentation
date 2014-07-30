@@ -8,6 +8,16 @@ namespace Compiler.Extensions
 {
     public static class MethodExtensions
     {
+        private static readonly Dictionary<string, string> _lookup;
+
+        static MethodExtensions()
+        {
+            _lookup = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase);
+            _lookup.Add("String", "string");
+            _lookup.Add("Int32", "int");
+            _lookup.Add("Boolean", "bool");
+        }
+
         public static string GetMethodSignature(this MethodInfo method)
         {
             var builder = new StringBuilder();
@@ -22,15 +32,23 @@ namespace Compiler.Extensions
                 {
                     continue;
                 }
+
                 var isParams = parameter.IsDefined(typeof(ParamArrayAttribute));
-                var signature = parameter.ParameterType.GetFullName(false);
-                signature = isParams ? string.Concat("params ", signature) : signature;
+                var parameterString = GetFriendlyTypeName(parameter.ParameterType);
+                parameterString = isParams ? string.Concat("params ", parameterString) : parameterString;
+
                 var parameterName = parameter.Name;
-                parameterList.Add(string.Concat(signature, " ", parameterName));
+                parameterList.Add(string.Concat(parameterString, " ", parameterName));
             }
             builder.Append(string.Join(", ", parameterList));
             builder.Append(")");
             return builder.ToString();
+        }
+
+        private static string GetFriendlyTypeName(Type type)
+        {
+            var name = type.GetFullName(false);
+            return _lookup.ContainsKey(name) ? _lookup[name] : name;
         }
     }
 }

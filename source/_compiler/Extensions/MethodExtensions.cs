@@ -21,8 +21,16 @@ namespace Compiler.Extensions
         public static string GetMethodSignature(this MethodInfo method)
         {
             var builder = new StringBuilder();
-            var name = method.Name;            
+
+            builder.Append(GetReturnType(method));
+            builder.Append(" ");
             builder.Append(method.Name);
+
+            if (method.IsGenericMethod)
+            {
+                BuildGenericArguments(method, builder);
+            }
+
             builder.Append("(");
             var parameters = method.GetParameters();
             var parameterList = new List<string>();
@@ -43,6 +51,25 @@ namespace Compiler.Extensions
             builder.Append(string.Join(", ", parameterList));
             builder.Append(")");
             return builder.ToString();
+        }
+
+        private static string GetReturnType(MethodInfo method)
+        {
+            return method.ReturnType == typeof(void)
+                ? "void"
+                : GetFriendlyTypeName(method.ReturnType);
+        }
+
+        private static void BuildGenericArguments(MethodInfo method, StringBuilder builder)
+        {
+            builder.Append("<");
+            var genericArguments = new List<string>();
+            foreach (var argument in method.GetGenericArguments())
+            {
+                genericArguments.Add(argument.Name);
+            }
+            builder.Append(string.Join(", ", genericArguments));
+            builder.Append(">");
         }
 
         private static string GetFriendlyTypeName(Type type)
